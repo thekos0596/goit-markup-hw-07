@@ -42,9 +42,9 @@
 }
 .modal__close--icon {
   transition: var(--transition-duration) var(--transition-timing-function);
-}
-.modal__button--close:hover .modal__close--icon {
-  fill: var(--accent-color);
+  .modal__button--close:hover & {
+    fill: var(--accent-color);
+  }
 }
 
 .modal-form {
@@ -61,10 +61,11 @@
 .form-container {
   display: flex;
   flex-direction: column;
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
 }
-.form-container:not(:first-child) {
-  margin-top: 10px;
-}
+
 .modal-form__label {
   margin-bottom: 4px;
   font-size: 12px;
@@ -84,19 +85,20 @@
   border-radius: 4px;
   outline: none;
   transition: var(--transition-duration) var(--transition-timing-function);
+  &:focus {
+    border-color: var(--accent-color);
+  }
 }
 .modal-input-icon {
   position: absolute;
   top: 50%;
   left: 12px;
   transform: translatey(-50%);
+  .modal-form-input:focus + & {
+    fill: var(--accent-color);
+  }
 }
-.modal-form-input:focus {
-  border-color: var(--accent-color);
-}
-.modal-form-input:focus + .modal-input-icon {
-  fill: var(--accent-color);
-}
+
 .modal-textarea {
   width: 100%;
   min-height: 120px;
@@ -110,15 +112,15 @@
   resize: none;
   outline: none;
   transition: var(--transition-duration) var(--transition-timing-function);
-}
-.modal-textarea::placeholder {
-  color: rgba(117, 117, 117, 0.5);
-}
-.modal-textarea:focus {
-  border-color: var(--accent-color);
-}
-.modal-textarea:focus::-webkit-input-placeholder {
-  color: var(--accent-color);
+  &::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+  }
+  &:focus {
+    border-color: var(--accent-color);
+  }
+  &:focus::-webkit-input-placeholder {
+    color: var(--accent-color);
+  }
 }
 
 .checkbox-container {
@@ -127,6 +129,12 @@
 }
 .modal-checkbox {
   appearance: none;
+  &:checked + .checkbox-icon {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    border: none;
+    fill-opacity: 1;
+  }
 }
 .checkbox-icon {
   position: absolute;
@@ -154,12 +162,7 @@
   color: var(--accent-color);
   text-decoration-skip-ink: none;
 }
-.modal-checkbox:checked + .checkbox-icon {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  border: none;
-  fill-opacity: 1;
-}
+
 .modal-form-button {
   display: flex;
   justify-content: center;

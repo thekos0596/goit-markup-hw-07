@@ -37,8 +37,9 @@
   border: 0px;
   cursor: pointer;
   transition: var(--transition-duration) var(--transition-timing-function);
-}
-.hero__button:hover,
-.hero__button:focus {
-  background-color: var(--button-background-color);
+
+  &:hover,
+  &:focus {
+    background-color: var(--button-background-color);
+  }
 }
